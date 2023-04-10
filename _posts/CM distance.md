@@ -34,7 +34,7 @@ $$
  =& \underset{i}{\text{argmax}}\, \log \Pr (O_B \mid A_i)\\
  =& \underset{i}{\text{argmax}}\, \log \frac{\Pr (O_B \mid A_i)}{\Pr (O_B \mid N)}\\
  =& \underset{i}{\text{argmax}}\, \sum_k\log \frac{\Pr (o_{Bk} \mid A_i)}{\Pr (o_{Bk} \mid N)} \quad (\text{sum of bit scores})\\
-\end{align},
+\end{align}
 $$
 
 where $N$ is the null model. 
