@@ -12,7 +12,7 @@ Welcome to my homepage! I am a research assistant at **the Chinese University of
 
 My research interests span a variety of fields, including deep learning, computer vision, computer graphics, and bioinformatics. I am passionate about leveraging the power of deep learning to address real-world problems and enhance the quality of our lives.
 
-I am also an amateur violinist and music creator. I am interested in classical music.
+I am also an amateur violinist and music creator. I am a fan of classical music.
 
 ## News
 \[Apr. 10 2023\] From **Fall 2023**, I will be pursuing a Master's degree in Computer Science at **ETH Zürich**.
