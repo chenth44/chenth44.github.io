@@ -6,7 +6,9 @@ permalink: /posts/2023/04/cm-distances/
 tags:
   - bioinformatics
 ---  
-  
+
+This blog introduces an observation-based distance measure for covariance models used by RNA sequences.
+
 # An observation-based distance measure for covariance models  
   
 Suppose we have two covariance models $A$ and $B$. We want to define the distance $d(A, B)$ between these models.  
