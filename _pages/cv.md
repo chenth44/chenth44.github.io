@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-Download my CV from [here](https://chenth44.github.io/files/CV_Tianhao_Chen.pdf).
+The PDF version of my CV is available [here](https://chenth44.github.io/files/CV_Tianhao_Chen.pdf).
 
 <!-- Education
 ======
