@@ -127,10 +127,12 @@ Using the guide tree and the final CM, each individual sequence in the input mul
   
 ### `cmsearch` for Searching CMs Against a Sequence Database  
   
-`cmsearch <cm_file> <seq_file>` searches CMs for each sequence in `<seq_file>`. Given a CM and a sequence, Infernal will first calculate the bit score of the sequence w.r.t. the CM:  
+`cmsearch <cm_file> <seq_file>` searches CMs for each sequence in `<seq_file>`. Given a CM and a sequence, Infernal will first calculate the bit score of the sequence w.r.t. the CM:
+
 $$  
 \text{bit score} \triangleq \log_2 \frac{\Pr(D \mid M)}{\Pr(D \mid N)}\ ,  
 $$  
+
 where $D$ stands for the sequence, $M$ stands for the CM, and $N$ stands for the null model, which is a single state equiprobable A, C, G and U.  
   
 Given the current bit score $x$ and the bit score calculated in `cmcalibrate`, we can compute the E-value, which is the number of hits expected for a random sequence input to reach the bit score of at least $x$. The lower E-value, the more significant the hit.  
