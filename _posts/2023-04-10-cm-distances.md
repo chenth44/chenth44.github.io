@@ -1,5 +1,10 @@
 ---  
-share: true  
+share: true
+title: 'Distance between covariance models'
+date: 2023-04-10
+permalink: /posts/2023/04/cm-distances/
+tags:
+  - bioinformatics
 ---  
   
 # An observation-based distance measure for covariance models  
