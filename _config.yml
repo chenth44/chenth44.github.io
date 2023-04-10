@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Welcome to Tianhao Chen's Homepage!"
+title                    : "Tianhao Chen's Homepage"
 title_separator          : "-"
 name                     : &name "Tianhao Chen"
 description              : &description "Bachelor in Computer Science at CUHK"
@@ -29,7 +29,7 @@ comments:
   facebook:
     appid                :
     num_posts            : # 5 (default)
-    colorscheme          : # "light" (default), "dark"
+    colorscheme          : "dark" # "light" (default), "dark"
 staticman:
   allowedFields          : ['name', 'email', 'url', 'message']
   branch                 : "gh-pages" # "master", "gh-pages"
@@ -83,7 +83,7 @@ author:
   name             : "Tianhao Chen (陈 天浩)"
   avatar           : "profile.jpg"
   bio              : "Research assistant at CUHK"
-  location         : "Hong Kong"
+  location         : "China"
   employer         :
   pubmed           : # "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
   googlescholar    : # "http://yourfullgooglescholarurl.com"
