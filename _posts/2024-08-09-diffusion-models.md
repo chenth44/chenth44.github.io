@@ -75,6 +75,7 @@ $$
 $$  
 where $\boldsymbol{\epsilon} \sim \mathcal{N}(\mathbf{0}, \mathbf{I})$.  
 ```  
+  
 ### Asymptotics  
   
 Since $\alpha_ {i} \in \left( 0, 1 \right)$, as $t \to \infty$  
