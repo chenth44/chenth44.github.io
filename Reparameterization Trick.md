@@ -1,6 +1,6 @@
----
-tags:
-  - Maths/Probability-Theory
-  - Note
-finished-writing: false
----
+---  
+tags:  
+  - Maths/Probability-Theory  
+  - Note  
+finished-writing: false  
+---  

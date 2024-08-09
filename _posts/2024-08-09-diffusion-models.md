@@ -51,23 +51,23 @@ collapse: close
   
 Define $\alpha_{t} = 1- \beta_{t}$,  
 $$  
-\begin{align}  
+\begin{align*}  
 \mathbf{x}_{t} &= \sqrt{ \alpha_{t} } \mathbf{x}_{t - 1} + \sqrt{ \beta_{t} } \boldsymbol{\epsilon}_{t}  \\  
 &= \sqrt{ \alpha_{t} } (\sqrt{ \alpha_{t-1} } \mathbf{x}_{t-2} + \sqrt{ \beta_{t - 1} } \boldsymbol{\epsilon}_{t-1}) + \sqrt{ \beta_{t} } \boldsymbol{\epsilon}_{t} \\  
 &= \sqrt{ \alpha_{t} } \left( \sqrt{ \alpha_{t-1} } \left( \sqrt{ \alpha_{t-2}  } \mathbf{x}_{t-3} + \sqrt{ \beta_{t-2} } \boldsymbol{\epsilon}_{t-2} \right) + \sqrt{ \beta_{t-1} } \boldsymbol{\epsilon}_{t-1}  \right) + \sqrt{ \beta_{t} } \boldsymbol{\epsilon}_{t} \\  
 &= \cdots \\  
 &= \left( \prod_{i=\tau}^t \sqrt{ \alpha_{i} }  \right) \mathbf{x}_{\tau -1} + \sum_{i= \tau}^t \left( \prod_{j = i + 1}^t \sqrt{ \alpha_{j} } \right) \sqrt{ \beta_{i} } \boldsymbol{\epsilon}_{i}.  
-\end{align}  
+\end{align*}  
 $$  
   
 The second term is the sum of i.i.d. zero-mean Gaussians, and is thus also a zero-mean [[Normal Distribution|Gaussian]], with variance  
 $$  
-\begin{align}  
+\begin{align*}  
 \sum_{i= \tau}^t \left( \prod_{j=i + 1}^t \alpha_{j} \right) \beta_{i} &= \sum_{i= \tau}^t \underbrace{ \left( \prod_{j=i + 1}^t \alpha_{j} \right)  }_{ \Pi_{i+1 : t} }(1 - \alpha_{i}) \\  
 &= \sum_{i=\tau}^t \Pi_{i+1:t} - \Pi _{i:t} \\  
 &= \cancel{ \Pi_{\tau + 1 : t} } - \Pi_{\tau : t} + \cancel{ \Pi_{\tau + 2 : t} } \cancel{ - \Pi_{\tau + 1 : t} }  + \cdots + 1 \cancel{ - \Pi_{t:t} } \\  
 &= 1- \Pi_{\tau : t} = 1 - \prod_{j = \tau}^t \alpha_{j}  
-\end{align}  
+\end{align*}  
 $$  
 Therefore, the forward diffusion process from time step $\tau$ to $t$ can be done with only one reparameterization  
 $$  
@@ -115,11 +115,11 @@ $$
 title: Derivation  
 collapse: close  
 $$  
-\begin{align}  
+\begin{align*}  
 \log \frac{p_{\theta}(\mathbf{x}_{0 : T})}{q(\mathbf{x}_{1:T} \mid \mathbf{x}_{0})} &= \log \frac{p_{\theta}(\mathbf{x}_{T}) \prod_{t=1}^T p_{\theta}(\mathbf{x}_{t-1} \mid \mathbf{x}_{t})}{\prod_{t=1}^T q(\mathbf{x}_{t} \mid \mathbf{x}_{t-1})} \\  
 &= \log p_{\theta}(\mathbf{x}_{T}) + \sum_{t=1}^T \log \frac{p_{\theta}(\mathbf{x}_{t-1} \mid \mathbf{x}_{t})}{q(\mathbf{x}_{t} \mid \mathbf{x}_{t-1})} \\  
 &= \log p_{\theta}(\mathbf{x}_{T}) + \sum_{t > 1}^T \log \frac{p_{\theta}(\mathbf{x}_{t-1} \mid \mathbf{x}_{t})}{q(\mathbf{x}_{t} \mid \mathbf{x}_{t-1})} + \log \frac{p_{\theta}(\mathbf{x}_{0} \mid \mathbf{x}_{1}) }{q(\mathbf{x}_{1} \mid \mathbf{x}_{0})}  
-\end{align}  
+\end{align*}  
 $$  
 ```ad-attention  
 Here $q(\mathbf{x}_t \mid \mathbf{x}_ {t-1})$ is not tractable since $\mathbf{x}_ {t-1}$ is unknown.  
@@ -127,19 +127,19 @@ Here $q(\mathbf{x}_t \mid \mathbf{x}_ {t-1})$ is not tractable since $\mathbf{x}
   
 Since $\mathbf{x}_{0:T}$ is a [[Markov Chains|Markov Chain]], for $t > 1$,  
 $$  
-\begin{align}  
+\begin{align*}  
 & \mathbf{x}_{t} \perp \mathbf{x}_{0:t-2} \mid \mathbf{x}_{t-1}  \\  
 \implies &q(\mathbf{x}_{t} \mid \mathbf{x}_{t-1} ) = q(\mathbf{x}_{t} \mid \mathbf{x}_{t-1}, \mathbf{x}_{0}) = \frac{q(\mathbf{x}_{t-1} \mid \mathbf{x}_{t}, \mathbf{x}_{0})q(\mathbf{x}_{t} \mid \mathbf{x}_{0})}{q(\mathbf{x}_{t-1} \mid \mathbf{x}_{0})}.  
-\end{align}  
+\end{align*}  
 $$  
 Plugging in,  
 $$  
-\begin{align}  
+\begin{align*}  
 \log \frac{p_{\theta}(\mathbf{x}_{0 : T})}{q(\mathbf{x}_{1:T} \mid \mathbf{x}_{0})} &=&& \log p_{\theta}(\mathbf{x}_{T}) + \sum_{t > 1}^T \log \frac{p_{\theta}(\mathbf{x}_{t-1} \mid \mathbf{x}_{t})}{q(\mathbf{x}_{t-1} \mid \mathbf{x}_{t}, \mathbf{x}_{0})}\frac{q(\mathbf{x}_{t-1} \mid \mathbf{x}_{0})}{q(\mathbf{x}_{t} \mid \mathbf{x}_{0})}  \\  
 &&&+ \log \frac{p_{\theta}(\mathbf{x}_{0} \mid \mathbf{x}_{1}) }{q(\mathbf{x}_{1} \mid \mathbf{x}_{0})} \\  
 &=&& \log \frac{p_{\theta}(\mathbf{x}_{T})}{q(\mathbf{x}_{T} \mid \mathbf{x}_{0})} + \sum_{t>1}^T \log \frac{p_{\theta}(\mathbf{x}_{t-1} \mid \mathbf{x}_{t})}{q(\mathbf{x}_{t-1} \mid \mathbf{x}_{t}, \mathbf{x}_{0})}  \\  
 &&&+ \log p_{\theta}(\mathbf{x}_{0} \mid \mathbf{x}_{1}).  
-\end{align}  
+\end{align*}  
 $$  
 ````  
   
@@ -155,10 +155,10 @@ q(\mathbf{x}_{t-1} \mid \mathbf{x}_{t}, \mathbf{x}_{0}) = \mathcal{N}(\tilde{\bo
 $$  
 where  
 $$  
-\begin{align}  
+\begin{align*}  
 \tilde{\boldsymbol{\mu}}_{t}(\mathbf{x}_{t}, \mathbf{x}_{0}) &:=  \frac{1}{\sqrt{ \alpha_{t} }}\mathbf{x}_{t} - \frac{1-\alpha_{t}}{\sqrt{ 1 - \bar{\alpha}_{t} } \sqrt{ \alpha_{t} }} \boldsymbol{\epsilon}; \\  
 \tilde{\beta}_{t} &:= \frac{1-\bar{\alpha}_{t-1}}{1- \bar{\alpha}_{t}} \beta_{t}.  
-\end{align}  
+\end{align*}  
 $$  
   
 ```ad-done  
