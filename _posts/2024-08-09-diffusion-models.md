@@ -24,7 +24,7 @@ Once the model has sufficiently learned to reconstruct the data distribution fro
   
 ## Forward Process  
   
-At each time step $t$, the transition probability from input $\mathbf{x}_{t-1}$ to output $\mathbf{x}_{t}$ is defined as a Gaussian:  
+At each time step $t$, the transition probability from input \(\mathbf{x}_{t-1}\) to output $\mathbf{x}_{t}$ is defined as a Gaussian:  
 $$  
 q(\mathbf{x}_{t} \mid \mathbf{x}_{t-1}) = \mathcal{N}(\sqrt{ 1 - \beta_{t} } \mathbf{x}_{t-1}, \beta_{t} \mathbf{I}),  
 $$  
